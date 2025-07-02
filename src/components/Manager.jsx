@@ -26,7 +26,7 @@ const Manager = () => {
     const [passwordArray, setPasswordArray] = useState([])
 
     const getPasswords = async () => {
-        let req = await fetch("http://localhost:3000/")
+        let req = await fetch("https://react-password-manager.onrender.com/")
         let passwords = await req.json()
         setPasswordArray(passwords)
     }
@@ -98,7 +98,7 @@ const Manager = () => {
             }
 
             // If any such id exists in the db, delete it 
-            await fetch("http://localhost:3000/", {
+            await fetch("https://react-password-manager.onrender.com/", {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ id: form.id })
@@ -111,7 +111,7 @@ const Manager = () => {
             const newPassword = { ...form, password: encryptedPassword, id: uuidv4() };
             setPasswordArray([...passwordArray, newPassword]);
 
-            await fetch("http://localhost:3000/", {
+            await fetch("https://react-password-manager.onrender.com/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newPassword)
@@ -148,7 +148,7 @@ const Manager = () => {
         if (c) {
             setPasswordArray(passwordArray.filter(item => item.id !== id))
 
-            await fetch("http://localhost:3000/", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
+            await fetch("https://react-password-manager.onrender.com/", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
 
             toast('Password Deleted!', {
                 position: "top-right",
