@@ -219,7 +219,10 @@ const Manager = () => {
                 <div className="passwords">
                     <h2 className='font-bold text-2xl py-4'>Your Passwords</h2>
                     {passwordArray.length === 0 && <div> No passwords to show</div>}
-                    {passwordArray.length != 0 && <table className="table-auto w-full rounded-md overflow-hidden mb-10">
+                    {passwordArray.length != 0 && 
+                    // <table className="table-auto w-full rounded-md overflow-hidden mb-10">
+                    <div className="overflow-x-auto w-full mb-10 rounded-md">
+    <table className="table-auto w-full min-w-[600px]">
                         <thead className='bg-green-800 text-white'>
                             <tr>
                                 <th className='py-2'>Site</th>
@@ -290,7 +293,8 @@ const Manager = () => {
                                 </tr>
                             })}
                         </tbody>
-                    </table>}
+                    </table>
+                    </div>}
                 </div>
             </div>
 
